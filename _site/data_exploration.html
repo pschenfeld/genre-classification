@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Patricia Schenfeld - Data Exploration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Patricia Schenfeld</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./introduction.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-pschenfeld" rel="" target="">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="./data_gathering.html" rel="" target="">
+ <span class="dropdown-text">Data Gathering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data_cleaning.html" rel="" target="">
+ <span class="dropdown-text">Data Cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data_exploration.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./clustering.html" rel="" target="">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./dimensionality_reduction.html" rel="" target="">
+ <span class="dropdown-text">Dimensionality Reduction</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./naive_bayes.html" rel="" target="">
+ <span class="menu-text">Naïve Bayes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./decision_trees_classification.html" rel="" target="">
+ <span class="menu-text">Decision Trees</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html" rel="" target="">
+ <span class="menu-text">Conclusions</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#general-eda-steps" id="toc-general-eda-steps" class="nav-link" data-scroll-target="#general-eda-steps">General EDA Steps</a></li>
+  <li><a href="#data-meanings" id="toc-data-meanings" class="nav-link" data-scroll-target="#data-meanings">Data Meanings</a></li>
+  </ul></li>
+  <li><a href="#news-api" id="toc-news-api" class="nav-link" data-scroll-target="#news-api">News API</a></li>
+  <li><a href="#electronic-dance-music-subgenres" id="toc-electronic-dance-music-subgenres" class="nav-link" data-scroll-target="#electronic-dance-music-subgenres">Electronic Dance Music Subgenres</a>
+  <ul class="collapse">
+  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding">Data Understanding</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
+  <li><a href="#data-visualizations" id="toc-data-visualizations" class="nav-link" data-scroll-target="#data-visualizations">Data Visualizations</a></li>
+  <li><a href="#correlation-analysis" id="toc-correlation-analysis" class="nav-link" data-scroll-target="#correlation-analysis">Correlation Analysis</a></li>
+  <li><a href="#hypothesis-generation" id="toc-hypothesis-generation" class="nav-link" data-scroll-target="#hypothesis-generation">Hypothesis Generation</a></li>
+  </ul></li>
+  <li><a href="#spotify-revenues-expenses-premium-users" id="toc-spotify-revenues-expenses-premium-users" class="nav-link" data-scroll-target="#spotify-revenues-expenses-premium-users">Spotify Revenues, Expenses &amp; Premium Users</a>
+  <ul class="collapse">
+  <li><a href="#data-understanding-1" id="toc-data-understanding-1" class="nav-link" data-scroll-target="#data-understanding-1">Data Understanding</a></li>
+  <li><a href="#descriptive-statistics-1" id="toc-descriptive-statistics-1" class="nav-link" data-scroll-target="#descriptive-statistics-1">Descriptive Statistics</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#correlation-analysis-1" id="toc-correlation-analysis-1" class="nav-link" data-scroll-target="#correlation-analysis-1">Correlation Analysis</a></li>
+  <li><a href="#hypothesis-generation-1" id="toc-hypothesis-generation-1" class="nav-link" data-scroll-target="#hypothesis-generation-1">Hypothesis Generation</a></li>
+  </ul></li>
+  <li><a href="#spotify-user-behavior" id="toc-spotify-user-behavior" class="nav-link" data-scroll-target="#spotify-user-behavior">Spotify User Behavior</a>
+  <ul class="collapse">
+  <li><a href="#understanding-the-data" id="toc-understanding-the-data" class="nav-link" data-scroll-target="#understanding-the-data">Understanding the Data</a></li>
+  <li><a href="#descriptive-statistics-2" id="toc-descriptive-statistics-2" class="nav-link" data-scroll-target="#descriptive-statistics-2">Descriptive Statistics</a></li>
+  <li><a href="#data-visualizations-1" id="toc-data-visualizations-1" class="nav-link" data-scroll-target="#data-visualizations-1">Data Visualizations</a></li>
+  <li><a href="#correlation-analysis-2" id="toc-correlation-analysis-2" class="nav-link" data-scroll-target="#correlation-analysis-2">Correlation Analysis</a></li>
+  <li><a href="#hypothesis-generation-2" id="toc-hypothesis-generation-2" class="nav-link" data-scroll-target="#hypothesis-generation-2">Hypothesis Generation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Exploration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this section, I delve into exploring the datasets I previously gathered and cleaned. Exploratory Data Analysis (EDA) is the crucial first step in the data analysis process, where we unravel the hidden stories and patterns within our datasets. It involves a comprehensive examination of data, employing various statistical and visualization techniques to understand its structure, relationships, and anomalies. EDA not only uncovers valuable insights but also serves as the foundation for informed decision-making in data-driven projects. I will work through each of the 6 datasets I gathered and cleaned from the previous <a href="./data_gathering.html">Data Gathering</a> and <a href="./data_cleaning.html">Data Cleaning</a> tabs, applying different EDA methods using Matplotlib, Seaborn and Pandas.</p>
+<section id="general-eda-steps" class="level3">
+<h3 class="anchored" data-anchor-id="general-eda-steps">General EDA Steps</h3>
+<p>I will walk through each of the below topics for my datasets, being sure to complete thorough and effective EDA.</p>
+<p><strong>Data Understanding:</strong> To effectively tackle our project’s objectives, we must first immerse ourselves in the dataset. We’ll explore its features, understand their data types, and investigate potential relationships that are crucial for our analysis.</p>
+<p><strong>Descriptive Statistics:</strong> Let’s start by quantifying the data’s central tendencies and spread for numerical variables, giving us insights into the dataset’s overall distribution. For categorical variables, we’ll create frequency distributions and visualizations to grasp their distribution patterns.</p>
+<p><strong>Data Visualization:</strong> We’ll harness the power of data visualization to make sense of complex data. Through histograms, scatter plots, and more, we’ll gain a visual perspective on data distribution, variable relationships, and potential trends.</p>
+<p><strong>Correlation Analysis:</strong> By scrutinizing correlations between variables, we’ll uncover valuable insights. Heatmaps and scatter plots will help us identify positive, negative, or negligible correlations, steering us towards deeper analyses.</p>
+<p><strong>Hypothesis Generation:</strong> Building on our initial observations, we’ll refine our hypotheses and research questions, ensuring they align with the emerging insights from the data.</p>
+<p><strong>Data Grouping and Segmentation:</strong> When applicable, we’ll divide the data into meaningful segments or groups. This approach allows us to explore specific subgroups, revealing insights that might not be apparent in the overall dataset.</p>
+<p><strong>Identifying Outliers:</strong> We’ll pay close attention to outliers, which can indicate data quality issues or hold intriguing stories within the dataset. Uncovering these anomalies is crucial to a comprehensive understanding of the data.</p>
+</section>
+<section id="data-meanings" class="level3">
+<h3 class="anchored" data-anchor-id="data-meanings">Data Meanings</h3>
+<p>Many of the datasets used contain audio features of songs/artists. Below I have defined what each column means and represents, so you can get a clearer understanding of further data analysis that is to come.</p>
+<p><strong>Duration</strong> The length of the song in milliseconds.</p>
+<p><strong>Popularity</strong> A 0-to-100 score that ranks how popular an artist/track is relative to other artists/tracks on Spotify.</p>
+<p><strong>Acousticness</strong> A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.</p>
+<p><strong>Danceability</strong> Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.</p>
+<p><strong>Energy</strong> Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.</p>
+<p><strong>Instrumentalness</strong> Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.</p>
+<p><strong>Key</strong> The key the track is in. Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.</p>
+<p><strong>Liveness</strong> Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live.</p>
+<p><strong>Loudness</strong> The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db.</p>
+<p><strong>Mode</strong> Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0.</p>
+<p><strong>Speechiness</strong> Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g.&nbsp;talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks.</p>
+<p><strong>Tempo</strong> The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.</p>
+<p><strong>Valence</strong> A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g.&nbsp;happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g.&nbsp;sad, depressed, angry).</p>
+</section>
+</section>
+<section id="news-api" class="level2">
+<h2 class="anchored" data-anchor-id="news-api">News API</h2>
+<p>I’ve collected a rich dataset from the News API, focusing on articles related to Spotify. This dataset is a treasure trove of information about the latest developments, trends, and news surrounding the music streaming platform. To distill the essence of these articles, I decided to create a captivating word cloud. By analyzing the titles and descriptions of each article, this word cloud visually represents the most frequently occurring words, offering a quick and insightful glimpse into the key themes and topics that dominate the Spotify news landscape. It’s a fascinating way to showcase the highlights and trending subjects within this dynamic and ever-evolving industry.</p>
+<p>The generated Spotify-themed word cloud below provides a visually captivating snapshot of the key themes and topics present in the collected articles. As expected, the word ‘Spotify’ takes center stage, reaffirming its central role in the context of these articles. The prominence of terms like ‘music,’ ‘new,’ and ‘AI’ suggests that the articles likely revolve around discussions regarding innovative developments, trends, and technologies in the music industry. The word ‘week’ may indicate a focus on weekly updates or happenings within Spotify, while ‘Apple’ hints at possible comparisons or interactions between the two major players in the music streaming industry.</p>
+<p>Overall, this word cloud offers a quick and engaging overview of the most significant terms within the dataset, providing a valuable starting point for understanding the core topics and trends in Spotify-related news.</p>
+<div class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="electronic-dance-music-subgenres" class="level2">
+<h2 class="anchored" data-anchor-id="electronic-dance-music-subgenres">Electronic Dance Music Subgenres</h2>
+<section id="data-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="data-understanding">Data Understanding</h3>
+<div class="cell" data-execution_count="148">
+<div class="cell-output cell-output-display" data-execution_count="148">
+<pre><code>artist_name          object
+danceability        float64
+energy              float64
+key                 float64
+loudness            float64
+mode                float64
+speechiness         float64
+acousticness        float64
+instrumentalness    float64
+liveness            float64
+valence             float64
+tempo               float64
+duration_mins       float64
+time_signature      float64
+genre                object
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="149">
+<div class="cell-output cell-output-display" data-execution_count="149">
+<pre><code>(20607, 15)</code></pre>
+</div>
+</div>
+</section>
+<section id="descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
+<p>Below are the descriptive statistics of the dataset. As this dataset is a combination of 5 edm subgenres, it would be interesting to compare these statistics across the genres.</p>
+<div class="cell" data-execution_count="150">
+<div class="cell-output cell-output-display" data-execution_count="150">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">danceability</td>
+<td>20607.0</td>
+<td>0.645416</td>
+<td>0.142001</td>
+<td>0.000000</td>
+<td>0.552000</td>
+<td>0.658000</td>
+<td>0.761000</td>
+<td>0.989000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">energy</td>
+<td>20607.0</td>
+<td>0.822341</td>
+<td>0.151667</td>
+<td>0.001370</td>
+<td>0.744000</td>
+<td>0.866000</td>
+<td>0.938000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">key</td>
+<td>20607.0</td>
+<td>5.569224</td>
+<td>3.637224</td>
+<td>0.000000</td>
+<td>2.000000</td>
+<td>6.000000</td>
+<td>9.000000</td>
+<td>11.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">loudness</td>
+<td>20607.0</td>
+<td>-6.171249</td>
+<td>3.191303</td>
+<td>-38.474000</td>
+<td>-7.951000</td>
+<td>-6.032000</td>
+<td>-4.057500</td>
+<td>2.335000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">mode</td>
+<td>20607.0</td>
+<td>0.526617</td>
+<td>0.499303</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">speechiness</td>
+<td>20607.0</td>
+<td>0.093484</td>
+<td>0.090122</td>
+<td>0.000000</td>
+<td>0.045600</td>
+<td>0.060400</td>
+<td>0.096300</td>
+<td>0.959000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">acousticness</td>
+<td>20607.0</td>
+<td>0.040806</td>
+<td>0.118974</td>
+<td>0.000001</td>
+<td>0.000760</td>
+<td>0.004120</td>
+<td>0.022100</td>
+<td>0.995000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">instrumentalness</td>
+<td>20607.0</td>
+<td>0.450730</td>
+<td>0.373322</td>
+<td>0.000000</td>
+<td>0.019550</td>
+<td>0.489000</td>
+<td>0.840000</td>
+<td>0.995000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">liveness</td>
+<td>20607.0</td>
+<td>0.195688</td>
+<td>0.172525</td>
+<td>0.007020</td>
+<td>0.085600</td>
+<td>0.119000</td>
+<td>0.262000</td>
+<td>0.988000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">valence</td>
+<td>20607.0</td>
+<td>0.350837</td>
+<td>0.233250</td>
+<td>0.000000</td>
+<td>0.158000</td>
+<td>0.311000</td>
+<td>0.512000</td>
+<td>0.983000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">tempo</td>
+<td>20607.0</td>
+<td>132.703367</td>
+<td>21.461315</td>
+<td>0.000000</td>
+<td>124.991000</td>
+<td>128.022000</td>
+<td>139.978500</td>
+<td>248.001000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">duration_mins</td>
+<td>20607.0</td>
+<td>4.956840</td>
+<td>2.197097</td>
+<td>0.160883</td>
+<td>3.504317</td>
+<td>4.470033</td>
+<td>6.237517</td>
+<td>82.463883</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">time_signature</td>
+<td>20607.0</td>
+<td>3.975300</td>
+<td>0.241966</td>
+<td>0.000000</td>
+<td>4.000000</td>
+<td>4.000000</td>
+<td>4.000000</td>
+<td>5.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>I noticed, as seen below, that my data is not balanced by genre. I decided to balance each genre by lowering each value count to match the minority class (‘techno’). After balancing, each genre contains 820 rows of data.</p>
+<div class="cell" data-execution_count="151">
+<div class="cell-output cell-output-stdout">
+<pre><code>Before balancing:</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="151">
+<pre><code>genre
+trance           4367
+tech house       4362
+techno           4234
+drum and bass    3858
+dubstep          3786
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="152">
+<div class="cell-output cell-output-stdout">
+<pre><code>After balancing:</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="152">
+<pre><code>genre
+trance           3786
+tech house       3786
+techno           3786
+drum and bass    3786
+dubstep          3786
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="153">
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape of dataset after balancing genres: </code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="153">
+<pre><code>(18930, 15)</code></pre>
+</div>
+</div>
+</section>
+<section id="data-visualizations" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualizations">Data Visualizations</h3>
+<p>I’ve created several visualizations to examine the differences in the edm subgenres and see what appears to be identifying traits.</p>
+<p>This graph shows the duration of songs per genre. It is evident there are outliers in the dataset (songs over 12 minutes), that may represent long mixes or full dj sets. Overall, it appears that most of the songs are less than 10 minutes long, with techno having more likelihood for longer songs.</p>
+<div class="cell" data-execution_count="154">
+<div class="cell-output cell-output-display" data-execution_count="154">
+<pre><code>[Text(0.5, 1.0, 'Duration of Songs by Genre')]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The below density plots show the ditribution of loudness by genre. Tech-house takes the cake with the highest loudness density.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/schenfeldp/opt/anaconda3/lib/python3.8/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>Text(0.5, 0.98, 'Distribution of Loudness by Genre')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-13-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Below is a density plot showing the different distributions of tempo for each genre. Most distinctly, drum and bass along with dubstep have the most differing tempo compared to the other genres. Tech-house seems to have a distinct tempo range, with a mean around 125.</p>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The boxplot below showing the distribution of daceability for each genre, demonstrates that the most ‘danceable’ genres are tech-house and techno.</p>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="correlation-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h3>
+<p>The highest correlation from this matrix seems to be ‘loudness’ and ‘energy’ with a correlation of .59. Additionally, the most negatively correlated columns are ‘energy’ and ‘acousticness’, which would make sense because acoustic versions of songs are typically lower in energy.</p>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="hypothesis-generation" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-generation">Hypothesis Generation</h3>
+<ul>
+<li>Can we predict edm subgenres using machine learning?</li>
+</ul>
+</section>
+</section>
+<section id="spotify-revenues-expenses-premium-users" class="level2">
+<h2 class="anchored" data-anchor-id="spotify-revenues-expenses-premium-users">Spotify Revenues, Expenses &amp; Premium Users</h2>
+<section id="data-understanding-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-understanding-1">Data Understanding</h3>
+<p><strong>About this dataset:</strong></p>
+<p>Spotify Revenue, Expenses and its Premium Users contains the number of premium users, number of Ad-supported users and total monthly active users (MAUs). The data spans from 2017-2023, with quarterly data.</p>
+<p>MAUs include number of premium users as well as number of Ad-supported users.</p>
+<p><em>Note : Sum of Premium Users and Ad-supported users can have some difference from MAUs.</em></p>
+<p><em>Note : All money figures are in Euro millions except ARPU which is in Euro and as it is.</em></p>
+<p><em>Note : All users figures are in millions.</em></p>
+<p><strong>Following definitions:</strong></p>
+<p>MAUs : It is defined as the total count of Ad-Supported Users and Premium Subscribers that have consumed content for greater than zero milliseconds in the last thirty days from the period-end indicated.</p>
+<p>Premium MAUs : It is defined as users that have completed registration with Spotify and have activated a payment method for Premium Service.</p>
+<p>Ad MAUs : It is defined as the total count of Ad-Supported Users that have consumed content for greater than zero milliseconds in the last thirty days from the period-end indicated.</p>
+<p>Premium ARPU : It is average revenue per user which is monthly measure defined as Premium subscription revenue recognized in the quarter indicated divided by the average daily Premium Subscribers in such quarter, which is then divided by three months.</p>
+<p>Cost of Revenue : Expenses done by the company.</p>
+<div class="cell" data-execution_count="71">
+<div class="cell-output cell-output-display" data-execution_count="71">
+<pre><code>date                               datetime64[ns]
+total_revenue                             float64
+cost_of_revenue                           float64
+gross_profit                              float64
+premium_revenue                           float64
+premium_cost_revenue                      float64
+premium_gross_profit                      float64
+ad_revenue                                float64
+ad_cost_of_revenue                        float64
+ad_gross_profit                           float64
+maus                                      float64
+premium_maus                              float64
+ad_maus                                   float64
+premium_arpu                              float64
+sales_and_marketing_cost                  float64
+research_and_development_cost             float64
+general_and_administrative_cost           float64
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="descriptive-statistics-1" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-statistics-1">Descriptive Statistics</h3>
+<p>Below is a summary of the statistics of the dataset. This dataset is on the smaller side, with only 25 rows, representing 25 quarters of the year from 2017-2023. Although a small dataset, it would be interesting to see the trends over time. For instance, the lowest revenue recorded was 902 million euros, and the max was 3166 million euros. My instinct would tell me that as Spotify grew over the years, the revenue continued to increase. There are a lot of interesting metrics in this dataset to explore, especially marketing costs. This table gives a broad oversight of our data, which is particularly useful because all of our variables are numerical.</p>
+<div class="cell" data-execution_count="72">
+<div class="cell-output cell-output-display" data-execution_count="72">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+<th data-quarto-table-cell-role="th">std</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">date</td>
+<td>25</td>
+<td>2020-03-30 21:07:12</td>
+<td>2017-03-31 00:00:00</td>
+<td>2018-09-30 00:00:00</td>
+<td>2020-03-31 00:00:00</td>
+<td>2021-09-30 00:00:00</td>
+<td>2023-03-31 00:00:00</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">total_revenue</td>
+<td>25.0</td>
+<td>1949.2</td>
+<td>902.0</td>
+<td>1449.0</td>
+<td>1855.0</td>
+<td>2501.0</td>
+<td>3166.0</td>
+<td>688.571468</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">cost_of_revenue</td>
+<td>25.0</td>
+<td>1448.32</td>
+<td>775.0</td>
+<td>1010.0</td>
+<td>1381.0</td>
+<td>1833.0</td>
+<td>2365.0</td>
+<td>511.590634</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">gross_profit</td>
+<td>25.0</td>
+<td>501.28</td>
+<td>105.0</td>
+<td>373.0</td>
+<td>479.0</td>
+<td>668.0</td>
+<td>801.0</td>
+<td>188.493484</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">premium_revenue</td>
+<td>25.0</td>
+<td>1721.4</td>
+<td>828.0</td>
+<td>1210.0</td>
+<td>1700.0</td>
+<td>2178.0</td>
+<td>2717.0</td>
+<td>599.337203</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">premium_cost_revenue</td>
+<td>25.0</td>
+<td>1247.04</td>
+<td>686.0</td>
+<td>894.0</td>
+<td>1219.0</td>
+<td>1545.0</td>
+<td>1939.0</td>
+<td>409.621419</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">premium_gross_profit</td>
+<td>25.0</td>
+<td>474.36</td>
+<td>118.0</td>
+<td>316.0</td>
+<td>481.0</td>
+<td>633.0</td>
+<td>778.0</td>
+<td>191.566977</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ad_revenue</td>
+<td>25.0</td>
+<td>215.76</td>
+<td>74.0</td>
+<td>130.0</td>
+<td>175.0</td>
+<td>282.0</td>
+<td>449.0</td>
+<td>107.578762</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ad_cost_of_revenue</td>
+<td>25.0</td>
+<td>201.68</td>
+<td>87.0</td>
+<td>115.0</td>
+<td>157.0</td>
+<td>286.0</td>
+<td>426.0</td>
+<td>105.019332</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ad_gross_profit</td>
+<td>25.0</td>
+<td>14.08</td>
+<td>-16.0</td>
+<td>4.0</td>
+<td>18.0</td>
+<td>25.0</td>
+<td>42.0</td>
+<td>15.739864</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">maus</td>
+<td>25.0</td>
+<td>294.72</td>
+<td>131.0</td>
+<td>191.0</td>
+<td>286.0</td>
+<td>381.0</td>
+<td>515.0</td>
+<td>117.212599</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">premium_maus</td>
+<td>25.0</td>
+<td>130.08</td>
+<td>52.0</td>
+<td>87.0</td>
+<td>130.0</td>
+<td>172.0</td>
+<td>210.0</td>
+<td>49.435918</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ad_maus</td>
+<td>25.0</td>
+<td>172.52</td>
+<td>82.0</td>
+<td>109.0</td>
+<td>163.0</td>
+<td>220.0</td>
+<td>317.0</td>
+<td>71.70258</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">premium_arpu</td>
+<td>25.0</td>
+<td>4.6504</td>
+<td>4.12</td>
+<td>4.38</td>
+<td>4.63</td>
+<td>4.86</td>
+<td>5.53</td>
+<td>0.374661</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">sales_and_marketing_cost</td>
+<td>25.0</td>
+<td>243.84</td>
+<td>110.0</td>
+<td>172.0</td>
+<td>236.0</td>
+<td>294.0</td>
+<td>453.0</td>
+<td>95.165505</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">research_and_development_cost</td>
+<td>25.0</td>
+<td>203.0</td>
+<td>80.0</td>
+<td>135.0</td>
+<td>173.0</td>
+<td>253.0</td>
+<td>435.0</td>
+<td>101.236522</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">general_and_administrative_cost</td>
+<td>25.0</td>
+<td>102.36</td>
+<td>42.0</td>
+<td>73.0</td>
+<td>102.0</td>
+<td>126.0</td>
+<td>171.0</td>
+<td>34.507101</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
+<p>I began by creating a graph of the Premium monthly active users and the Ad monthly active users over time. I was curious to see if there were any trends or periods where MAUs fell. From the below graph, MAUs for both premium and ad-supported users steadily increased from 2017-2023. Premium users seem to be behind in numbers compared to the ad-supported users, this could be an indication of an opportunity to push premium sign-ups.</p>
+<div class="cell" data-execution_count="77">
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fba12d55880&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This graph below shows the gross profit trends for premium and ad users. It is evident that premium users generate more profit (monthly subscription payments from users), whereas ad-supported accounts are free and generate minimal profit.</p>
+<div class="cell" data-execution_count="78">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Below we can see the breakdown of costs from this dataset, which indicatively shows that ‘cost_of_revenue’ is the most significant cost.</p>
+<div class="cell" data-execution_count="82">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The graph below is very interesting as it plots the number of premium monthly active users over time as well as the premium average revenue per user over time. The number of premium MAUs has steadily increased over time while the premium ARPU has decreased. What attributed to this effect?</p>
+<div class="cell" data-execution_count="83">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="correlation-analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-analysis-1">Correlation Analysis</h3>
+<p>The correlation matrix below shows the correlation between the different variables in the dataset. Darker colors represent stronger correlations, while lighter colors represent weaker or no correlations. It appears that most of the variables are almost directly correlated with one another, which would make sense since total_revenue, for example, would be highly correlated with costs and profits.</p>
+<div class="cell" data-execution_count="92">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="hypothesis-generation-1" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-generation-1">Hypothesis Generation</h3>
+<p>Based on my initial observations from the data, I would like to refine my research questions to the following:</p>
+<ul>
+<li>Based on historical data, can you create forecasts for future revenue, user engagement, or expenses?</li>
+<li>How do marketing and development expenses correlate with changes in revenue and user engagement?</li>
+<li>How do cost components change over time, and are there any cost-saving opportunities?</li>
+</ul>
+</section>
+</section>
+<section id="spotify-user-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="spotify-user-behavior">Spotify User Behavior</h2>
+<section id="understanding-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-data">Understanding the Data</h3>
+<p>Below are definitions of the columns in this dataset.</p>
+<ol type="1">
+<li><p>Age - Age group of user</p></li>
+<li><p>Gender - Gender of user</p></li>
+<li><p>spotify_usage_period - How long have you been using Spotify?</p></li>
+<li><p>spotify_listening_device - Which of the following devices do you primarily use to listen to Spotify?</p></li>
+<li><p>spotify_subscription_plan - Which Spotify subscription plan do you currently have?</p></li>
+<li><p>premium_sub_willingness - Are you willing to take a premium subscription or willing to continue with premium subscription in future?</p></li>
+<li><p>preffered_premium_plan - If premium or willing to take premium, what amount do you pay for the subscription?</p></li>
+<li><p>preferred_listening_content - What do you prefer to listen more?</p></li>
+<li><p>fav_music_genre - What genre(s) of music do you enjoy the most?</p></li>
+<li><p>music_time_slot - What is your favourite time slot to listen to music?</p></li>
+<li><p>music_Influencial_mood - When it comes to listening to music, which of the following moods or situations most strongly influences your choice of music?</p></li>
+<li><p>music_lis_frequency - When do you listen to music more often?</p></li>
+<li><p>music_expl_method - How do you discover new music on Spotify?</p></li>
+<li><p>music_recc_rating - How do you rate the spotify music recommendations from 1-5?</p></li>
+<li><p>pod_lis_frequency - How often do you listen to Podcast?</p></li>
+<li><p>fav_pod_genre - What genre(s) of Podcast do you enjoy the most?</p></li>
+<li><p>preffered_pod_format - What podcast format you generally prefer?</p></li>
+<li><p>pod_host_preference - Are you more inclined to listen to podcasts from unknown personalities, or do you prefer podcasts hosted by well-known individuals?</p></li>
+<li><p>preffered_pod_duration - Do you prefer shorter podcast episodes (under 30 minutes) or longer episodes (over 30 minutes)</p></li>
+<li><p>pod_variety_satisfaction - Are you satisfied with the variety and availability of podcasts on Spotify?</p></li>
+</ol>
+<div class="cell" data-execution_count="97">
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>age                            object
+gender                         object
+spotify_usage_period           object
+spotify_listening_device       object
+spotify_subscription_plan      object
+premium_sub_willingness        object
+preferred_premium_plan         object
+preferred_listening_content    object
+fav_music_genre                object
+music_time_slot                object
+music_influential_mood         object
+music_lis_frequency            object
+music_expl_method              object
+music_rec_rating                int64
+pod_lis_frequency              object
+fav_pod_genre                  object
+preferred_pod_format           object
+pod_host_preference            object
+preferred_pod_duration         object
+pod_variety_satisfaction       object
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="descriptive-statistics-2" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-statistics-2">Descriptive Statistics</h3>
+<p>We only have one numerical variable in our dataset so the below table shows the statistics for that column. It appears that the average rating for the Spotify recommendation system is 3.5 out of 5, which I would say is a favorable score overall.</p>
+<div class="cell" data-execution_count="100">
+<div class="cell-output cell-output-display" data-execution_count="100">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">music_rec_rating</td>
+<td>520.0</td>
+<td>3.503846</td>
+<td>0.979552</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>3.5</td>
+<td>4.0</td>
+<td>5.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="data-visualizations-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualizations-1">Data Visualizations</h3>
+<p>Below is a graph showing the distribution of gender within the dataset. Within the 520 rows, there are over 350 responses from females, and only around 100 from males. The data is heavily skewed towards women.</p>
+<div class="cell" data-execution_count="101">
+<div class="cell-output cell-output-display" data-execution_count="101">
+<pre><code>[Text(0.5, 1.0, 'Count of Gender')]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Here we can see that the dataset is mostly comprised of users within the age range of 20-35. It is intuitive that there would be little to no users between the ages of 6-12 and over 60 years old. Although this dataset only contains 520 rows, I would believe it is likely that in general 20-35 is the most active age group on the platform.</p>
+<div class="cell" data-execution_count="102">
+<div class="cell-output cell-output-display" data-execution_count="102">
+<pre><code>[Text(0.5, 1.0, 'Distribution of Age Ranges')]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This pie chart shows the breakdown of how long the users in this dataset have been using Spotify. It is a good sign that most users have been on the platform for more than 2 years. This shows great retention rate.</p>
+<div class="cell" data-execution_count="103">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>From the below pie chart, it is evident that there is a lack of podcast listening within these group of listeners. The frequenices of ‘Never’ and ’Rarely make up 63.7% of the data! This could potentially be a good opportunity for Spotify to work on its reach of podcast listeners.</p>
+<div class="cell" data-execution_count="106">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This horizantal bar chart shows the distribution of what the favorite podcast genres are. Comedy and Lifestyle/Health are the top 2 most popular genres. Marketing these podcasts towards users could increase podcast listening rates.</p>
+<div class="cell" data-execution_count="105">
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="correlation-analysis-2" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-analysis-2">Correlation Analysis</h3>
+<p>Due to not having numeric values in this dataset, I did not create a correlation matrix. However, the graphs below may indicate some correlation between variables.</p>
+<p>This graph shows the distribution of favorite genres and what time slot they are most preferred for listening. The ‘Melody’ genre is most preferred to be listened at night, as well as the ‘Pop’ genre. The time of day may affect what genre is listened to.</p>
+<div class="cell" data-execution_count="109">
+<div class="cell-output cell-output-display" data-execution_count="109">
+<pre><code>[Text(0.5, 1.0, 'Which Genre is Most Preferred at What Time Slot')]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>This histogram shows a user’s willigness to change to a premium plan according to their age group. While we already know the age range of 20-35 is most abundant in this dataset, it is also evident they are more likely to switch to premium.</p>
+<div class="cell" data-execution_count="108">
+<div class="cell-output cell-output-display" data-execution_count="108">
+<pre><code>[Text(0.5, 1.0, 'Willingness to Change to Premium According to Age Group')]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="data_exploration_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="hypothesis-generation-2" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-generation-2">Hypothesis Generation</h3>
+<p>Based on my EDA, I would refine my research questions to the following:</p>
+<ul>
+<li>Which Premium plan is preferred by users, and does it vary by age or music preferences?</li>
+<li>How can Spotify tailor its marketing and content strategy to better cater to the preferences and behavior of different user segments?</li>
+<li>Can personalized music or podcast recommendations be generated based on user preferences and behavior?</li>
+</ul>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

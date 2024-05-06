@@ -1,0 +1,44 @@
+project:
+  type: website
+
+website:
+  title: "Patricia Schenfeld"
+  back-to-top-navigation: true
+  navbar:
+    left:
+      - href: introduction.ipynb
+        text: Introduction  
+      - href: https://github.com/anly501/dsan-5000-project-pschenfeld
+        text: Code
+      - text: Data
+        menu: 
+        - text: Data Gathering
+          href: data_gathering.ipynb  
+        - text: Data Cleaning 
+          href: data_cleaning.ipynb  
+        - href: data_exploration.ipynb
+          text: Data Exploration 
+        - href: clustering.ipynb
+          text: Clustering
+        - href: dimensionality_reduction.ipynb
+          text: Dimensionality Reduction
+      - text: Naïve Bayes
+        href: naive_bayes.ipynb
+      - text: Decision Trees
+        href: decision_trees_classification.ipynb
+      - href: conclusion.ipynb
+        text: Conclusions                                    
+        
+format:
+  html:
+    theme: lumen
+    toc: true
+    page-layout: full
+    link-external-newwindow: true
+
+
+
+
+
+
+
